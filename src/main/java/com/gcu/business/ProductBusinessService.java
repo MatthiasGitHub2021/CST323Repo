@@ -30,7 +30,11 @@ public class ProductBusinessService {
 
     public boolean addProduct(ProductModel productModel){
         //Create product(entity) from model
-        ProductEntity entity = new ProductEntity(productModel.getId(), productModel.getName(), productModel.getPrice(), productModel.getInstock());
+        ProductEntity entity = new ProductEntity(
+                productModel.getId(),
+                productModel.getName(),
+                productModel.getPrice(),
+                productModel.getInstock());
 
         return service.create(entity);
     }

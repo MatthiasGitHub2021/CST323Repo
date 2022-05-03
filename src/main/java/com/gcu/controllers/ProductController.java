@@ -36,17 +36,31 @@ public class ProductController {
         return "products";
     }
 
+    /**
+     * Returns page to add a product
+     * @param model
+     * @return addProduct.html
+     */
     @GetMapping("/addProduct")
     public String addProduct(Model model){
 
         model.addAttribute("title", "Add Product");
+        model.addAttribute("ProductModel", new ProductModel());
 
         return "addProduct";
     }
 
     @PostMapping("/doAdd")
-    public String doAdd(@ModelAttribute ProductModel productModel, Model model){
+    public String doAdd(@ModelAttribute ProductModel productModel){
+
+        System.out.println(productModel.getName());
+        System.out.println(productModel.getPrice());
+        System.out.println(productModel.getInstock());
+
         service.addProduct(productModel);
+
+        //Todo: add to list, link list to product.html
+
         return "products";
     }
 }

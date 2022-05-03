@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * Controller for actions related to registering a user
  */
 @Controller
-//@RequestMapping("/")
 public class UserController {
     //Dependency Inject
     @Autowired
@@ -28,7 +27,6 @@ public class UserController {
     public String register(Model model){
         model.addAttribute("title", "Register");
         model.addAttribute("userModel", new UserModel());
-        //System.out.println("test");
         return "register";
     }
 
@@ -41,7 +39,6 @@ public class UserController {
         //System.out.println("UName =" + userModel.getUserName());
         //get userService and add new user
         service.addUser(userModel);
-        //System.out.println("test doRegister");
         return "login";
     }
 }

@@ -8,18 +8,21 @@ public class ProductModel {
 
     private String price;
 
-    private String instock;
+    private String instock = "false";
 
     public ProductModel(Long id, String name, String price, String instock) {
+
         this.id = id;
         this.name = name;
         this.price = price;
         this.instock = instock;
     }
 
-    public ProductModel(){}
+    public ProductModel() {
+    }
 
     //getters/setters
+
     public Long getId() {
         return id;
     }
@@ -48,8 +51,7 @@ public class ProductModel {
         return instock;
     }
 
-    public void setInstock() {
+    public void setInstock(String instock) {
         this.instock = instock;
     }
 }
-

@@ -42,7 +42,6 @@ public class ProductDataService implements DataAccessInterface<ProductEntity>{
 
     /**
      * CRUD: Create an entity
-     * @param productEntity
      * @return boolean if created or not
      */
     @Override

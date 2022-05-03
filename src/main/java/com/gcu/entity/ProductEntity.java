@@ -26,9 +26,7 @@ public class ProductEntity {
         this.instock = instock;
     }
 
-    public ProductEntity() {
-        super();
-    }
+    public ProductEntity() {}
 
     public Long getId() {
         return id;
