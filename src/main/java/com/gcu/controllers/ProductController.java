@@ -1,14 +1,16 @@
 package com.gcu.controllers;
 
 import com.gcu.business.ProductBusinessService;
+import com.gcu.entity.ProductEntity;
 import com.gcu.model.ProductModel;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
@@ -31,8 +33,10 @@ public class ProductController {
         //Get product list
         List<ProductModel> productList = service.getAllProducts();
         model.addAttribute("title", "Products");
-        model.addAttribute("productList", productList);
-
+        model.addAttribute("ProductList", productList);
+//        for (ProductModel product : productList) {
+//            System.out.println(product.getName() + "");
+//        }
         return "products";
     }
 
@@ -46,21 +50,67 @@ public class ProductController {
 
         model.addAttribute("title", "Add Product");
         model.addAttribute("ProductModel", new ProductModel());
+        //         object name to reference^^^              object^^^
 
         return "addProduct";
     }
 
     @PostMapping("/doAdd")
-    public String doAdd(@ModelAttribute ProductModel productModel){
+    public String doAdd(@ModelAttribute ProductModel productModel, Model model){
 
-        System.out.println(productModel.getName());
-        System.out.println(productModel.getPrice());
-        System.out.println(productModel.getInstock());
-
+        //adds product to database
         service.addProduct(productModel);
 
-        //Todo: add to list, link list to product.html
+        //Get list from database
+        List<ProductModel> productList = service.getAllProducts();
+
+        //Tells model to pass in retrieved list
+        model.addAttribute("title", "Products");
+        model.addAttribute("ProductList", productList);
 
         return "products";
     }
+
+    /**
+     * Return product page with all products
+     * @return products.html
+     */
+
+    @GetMapping("/deleteById/{id}")
+    public String deleteByID(@PathVariable int id, Model model){
+
+        //Get the product entity by ID #
+        ProductModel product = service.getProductById(id);
+
+        //Delete from database
+        service.deleteProduct(product);
+
+        //Get list from database
+        List<ProductModel> productList = service.getAllProducts();
+
+        //Tells model to pass in retrieved list
+        model.addAttribute("title", "Products");
+        model.addAttribute("ProductList", productList);
+
+        return "products";
+        //return "redirect:products";
+    }
+
+    /**
+     * Process update function from products.html
+     * @param id
+     * @return updateProduct.html
+     */
+    @GetMapping("/updateProduct/{id}")
+    public String updateProduct(@PathVariable int id, Model model){
+
+        //Get the product entity by ID #
+        ProductModel product = service.getProductById(id);
+
+        //Populate a model object from entity id
+        model.addAttribute("ProductModel", product);
+
+        return "updateProduct";
+    }
+
 }

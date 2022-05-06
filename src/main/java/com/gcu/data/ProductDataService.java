@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProductDataService implements DataAccessInterface<ProductEntity>{
@@ -36,8 +37,12 @@ public class ProductDataService implements DataAccessInterface<ProductEntity>{
 
 
     @Override
-    public ProductEntity findById(int t) {
-        return null;
+    public ProductEntity findById(int id) {
+
+        //Optional object to hold entity returned from database
+        Optional<ProductEntity> product = productRepository.findById((long) id);
+
+        return product.get();
     }
 
     /**
@@ -46,6 +51,7 @@ public class ProductDataService implements DataAccessInterface<ProductEntity>{
      */
     @Override
     public boolean create(ProductEntity productEntity) {
+
         try{
             this.productRepository.save(productEntity);
         }catch (Exception e){
@@ -56,12 +62,26 @@ public class ProductDataService implements DataAccessInterface<ProductEntity>{
     }
 
     @Override
-    public boolean update(ProductEntity t) {
+    public boolean update(ProductEntity product) {
+
+        try{
+            productRepository.save(product);
+        }catch(Exception e){
+            e.printStackTrace();
+            return false;
+        }
         return true;
     }
 
     @Override
-    public boolean delete(ProductEntity t) {
+    public boolean delete(ProductEntity product) {
+
+        try{
+            productRepository.delete(product);
+        }catch(Exception e){
+            e.printStackTrace();
+            return false;
+        }
         return true;
     }
 }

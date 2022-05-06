@@ -3,6 +3,7 @@ package com.gcu.business;
 import com.gcu.data.ProductDataService;
 import com.gcu.entity.ProductEntity;
 import com.gcu.model.ProductModel;
+import com.gcu.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +15,9 @@ public class ProductBusinessService {
 
    @Autowired
     private ProductDataService service;
+
+   @Autowired
+   private ProductRepository productRepository;
 
     public List<ProductModel> getAllProducts(){
         //Get products(entities) from database
@@ -46,9 +50,10 @@ public class ProductBusinessService {
         return new ProductModel(entity.getId(), entity.getName(), entity.getPrice(), entity.getInstock());
     }
 
-    public boolean deleteProduct(ProductModel productModel){
-        //Create entity from model
-        ProductEntity entity = new ProductEntity(productModel.getId(), productModel.getName(), productModel.getPrice(), productModel.getInstock());
+    public boolean deleteProduct(ProductModel product){
+        //Get entity from database by ID
+        ProductEntity entity = new ProductEntity(product.getId(), product.getName(), product.getPrice(), product.getInstock());
+        //Return entity
         return service.delete(entity);
     }
 

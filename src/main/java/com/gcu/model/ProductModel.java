@@ -8,7 +8,7 @@ public class ProductModel {
 
     private String price;
 
-    private String instock = "false";
+    private String instock;
 
     public ProductModel(Long id, String name, String price, String instock) {
 

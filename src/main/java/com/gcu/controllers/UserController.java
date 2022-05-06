@@ -34,7 +34,7 @@ public class UserController {
      * Registers user in database
      */
     @PostMapping("/doRegister")
-    public String doRegister(@ModelAttribute UserModel userModel, Model model){
+    public String doRegister(@ModelAttribute UserModel userModel){
 
         //System.out.println("UName =" + userModel.getUserName());
         //get userService and add new user
