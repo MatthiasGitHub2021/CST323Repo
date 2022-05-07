@@ -16,7 +16,6 @@ public class ProductDataService implements DataAccessInterface<ProductEntity>{
     private ProductRepository productRepository;
 
     public ProductDataService(ProductRepository productRepository){
-
         this.productRepository = productRepository;
     }
 
@@ -34,7 +33,6 @@ public class ProductDataService implements DataAccessInterface<ProductEntity>{
         //Return list named "product"
         return product;
     }
-
 
     @Override
     public ProductEntity findById(int id) {

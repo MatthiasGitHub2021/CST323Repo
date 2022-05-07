@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -41,6 +42,30 @@ public class ProductController {
     }
 
     /**
+     * View single product
+     * @return readProduct.html
+     */
+    @GetMapping("/readProduct/{id}")
+    public String readProduct(@PathVariable int id, Model model){
+
+        //Create Model object using Id
+        ProductModel productModel = service.getProductById(id);
+        //Create list to store object
+        List<ProductModel> productList = new ArrayList<ProductModel>();
+        //Add Model object to list
+        productList.add(productModel);
+
+
+        model.addAttribute("title", "Read Product");
+        model.addAttribute("ProductList", productList);
+        for (ProductModel product : productList) {
+            System.out.println(product.getName() + "");
+        }
+
+        return "readProduct";
+    }
+
+    /**
      * Returns page to add a product
      * @param model
      * @return addProduct.html
@@ -55,6 +80,12 @@ public class ProductController {
         return "addProduct";
     }
 
+    /**
+     * Function to add product to database. Then get list and return to products page.
+     * @param productModel
+     * @param model
+     * @return
+     */
     @PostMapping("/doAdd")
     public String doAdd(@ModelAttribute ProductModel productModel, Model model){
 
@@ -93,7 +124,7 @@ public class ProductController {
         model.addAttribute("ProductList", productList);
 
         return "products";
-        //return "redirect:products";
+
     }
 
     /**
@@ -101,16 +132,26 @@ public class ProductController {
      * @param id
      * @return updateProduct.html
      */
-    @GetMapping("/updateProduct/{id}")
+    @GetMapping("/editProduct/{id}")
     public String updateProduct(@PathVariable int id, Model model){
 
-        //Get the product entity by ID #
-        ProductModel product = service.getProductById(id);
 
-        //Populate a model object from entity id
-        model.addAttribute("ProductModel", product);
+        //Create Model object using Id
+        ProductModel productModel = service.getProductById(id);
+        //Create list to store object
+        List<ProductModel> productList = new ArrayList<ProductModel>();
+        //Add Model object to list
+        productList.add(productModel);
 
-        return "updateProduct";
+
+        model.addAttribute("title", "Read Product");
+        model.addAttribute("ProductList", productList);
+        for (ProductModel product : productList) {
+            System.out.println(product.getName() + "");
+        }
+
+        return "editProduct";
     }
+
 
 }
