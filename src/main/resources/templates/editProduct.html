@@ -15,17 +15,22 @@
 
         <div class="mb-3 justify-content-center">
             <label class="form-label">Product name:</label>
-            <input type="text" class="form-control" th:value="${product.name}" id="name" name="name">
+            <input type="text" class="form-control" th:value="${product.id}" id="id" name="id" required>
+        </div>
+
+        <div class="mb-3 justify-content-center">
+            <label class="form-label">Product name:</label>
+            <input type="text" class="form-control" th:value="${product.name}" id="name" name="name" required>
         </div>
 
         <div class="mb-3 justify-content-center">
             <label class="form-label">Price:</label>
-            <input type="text" class="form-control" th:value="${product.price}" id="price" name="price">
+            <input type="text" class="form-control" th:value="${product.price}" id="price" name="price" required>
         </div>
 
         <div class="mb-3 justify-content-center">
             <label class="form-label">Instock:</label>
-            <input type="text" class="form-control" th:value="${product.instock}" id="instock" name="instock">
+            <input type="text" class="form-control" th:value="${product.instock}" id="instock" name="instock" required>
         </div>
 
         <button type="submit" class="btn btn-secondary btn-lg">Save</button>           <button type="button" name="back" onclick="history.back()" class="btn btn-secondary btn-lg">Go back</button>

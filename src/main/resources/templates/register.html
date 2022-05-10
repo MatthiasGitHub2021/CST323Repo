@@ -13,22 +13,22 @@
     <form th:action="@{/doRegister}" th:object="${userModel}" method="POST">
     <div class="mb-3 justify-content-center">
         <label class="form-label">First Name:</label>
-        <input type="text" class="form-control" th:field="*{firstName}">
+        <input type="text" class="form-control" th:field="*{firstName}" required>
     </div>
 
     <div class="mb-3 justify-content-center">
         <label class="form-label">Last Name:</label>
-        <input type="text" class="form-control" th:field="*{lastName}">
+        <input type="text" class="form-control" th:field="*{lastName}" required>
     </div>
 
     <div class="mb-3 justify-content-center">
         <label class="form-label">User Name:</label>
-        <input type="text" class="form-control" th:field="*{userName}">
+        <input type="text" class="form-control" th:field="*{userName}" required>
     </div>
 
     <div class="mb-3 justify-content-center">
         <label class="form-label">Password:</label>
-        <input type="text" class="form-control" th:field="*{password}">
+        <input type="text" class="form-control" th:field="*{password}" required>
     </div>
 
    <button type="submit" class="btn btn-secondary btn-lg">Submit</button>           <button type="button" name="back" onclick="history.back()" class="btn btn-secondary btn-lg">Go back</button>

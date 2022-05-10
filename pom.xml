@@ -14,7 +14,7 @@
 	<name>CloudTestingAppActivity1</name>
 	<description>Program to test clouds</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>8</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
