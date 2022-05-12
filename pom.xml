@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.gcu</groupId>
-	<artifactId>cloudtesting</artifactId>
+	<artifactId>cloudtestingmp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>CloudTestingAppActivity1</name>
 	<description>Program to test clouds</description>
