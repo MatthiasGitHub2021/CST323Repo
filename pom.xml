@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.gcu</groupId>
 	<artifactId>cloudtestingmp</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1</version>
 	<name>CloudTestingAppActivity1</name>
 	<description>Program to test clouds</description>
 	<packaging>war</packaging>
