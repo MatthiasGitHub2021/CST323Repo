@@ -22,6 +22,7 @@
 //    public ProductEntity(Long id, String name, String price, String instock) {
 //        this.id = id;
 //        this.name = name;
+
 //        this.price = price;
 //        this.instock = instock;
 //    }
