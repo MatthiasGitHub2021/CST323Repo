@@ -64,11 +64,11 @@
 				<executions>
 					<execution>
 						<phase>package</phase>
-						<goals><goal>copy</goal></goals>
+<!--						<goals><goal>copy</goal></goals>-->
 						<configuration>
 							<artifactItems>
 								<artifactItem>
-									<groupId>com.github.jsimone</groupId>
+									<groupId>com.github.MatthiasGitHub2021</groupId>
 									<artifactId>webapp-runner</artifactId>
 									<version>9.0.13.0</version>
 									<destFileName>webapp-runner.jar</destFileName>
