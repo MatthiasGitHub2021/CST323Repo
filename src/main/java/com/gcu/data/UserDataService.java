@@ -34,25 +34,25 @@
 //
 //        @Override
 //        public List<UserEntity> findAll() {
-//            // TODO Auto-generated method stub
+//
 //            return null;
 //        }
 //
 //        @Override
 //        public UserEntity findById(int id) {
-//            // TODO Auto-generated method stub
+//
 //            return null;
 //        }
 //
 //        @Override
 //        public boolean update(UserEntity t) {
-//            // TODO Auto-generated method stub
+//
 //            return false;
 //        }
 //
 //        @Override
 //        public boolean delete(UserEntity t) {
-//            // TODO Auto-generated method stub
+//
 //            return false;
 //        }
 //
