@@ -49,5 +49,5 @@ jobs:
         with:
           app-name: 'cloudtestingmp'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_8750EF1CFE83407D9DCF94BE935661E2 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_A37601D192084EF2819F9B2772EB9B8D }}
           package: '*.jar'
