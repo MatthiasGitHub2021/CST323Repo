@@ -62,26 +62,3 @@ public class ProductBusinessService {
         return service.update(entity);
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
