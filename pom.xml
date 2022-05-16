@@ -13,7 +13,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>CloudTestingAppActivity1</name>
 	<description>Program to test clouds</description>
-	<packaging>war</packaging>
+<!--	<packaging>war</packaging>-->
 
 	<properties>
 		<java.version>8</java.version>
