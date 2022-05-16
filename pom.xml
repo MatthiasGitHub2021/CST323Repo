@@ -14,6 +14,7 @@
 	<name>CloudTestingAppActivity1</name>
 	<description>Program to test clouds</description>
 	<packaging>war</packaging>
+
 	<properties>
 		<java.version>8</java.version>
 	</properties>
