@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-
 @Service
 public class UserDataService implements DataAccessInterface<UserEntity>{
 
@@ -55,6 +54,7 @@ public class UserDataService implements DataAccessInterface<UserEntity>{
 
             return false;
         }
+
 
         public UserEntity findByUserName(String username) {
             // Attempt to find user by username
