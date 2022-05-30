@@ -51,13 +51,11 @@ public class UserDataService implements DataAccessInterface<UserEntity>{
 
         @Override
         public boolean delete(UserEntity t) {
-
             return false;
         }
 
-
         public UserEntity findByUserName(String username) {
             // Attempt to find user by username
-            return userRepository.findByUserName(username);
+            return userRepository.findByUsername(username);
         }
 }

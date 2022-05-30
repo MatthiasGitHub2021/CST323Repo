@@ -20,17 +20,17 @@ public class UserEntity {
     private String lastName;
 
     @Column("UserName")
-    private String userName;
+    private String username;
 
     @Column("Password")
     private String password;
 
-    public UserEntity(int id, String firstName, String lastName, String userName, String password) {
+    public UserEntity(int id, String firstName, String lastName, String username, String password) {
        super();
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.userName = userName;
+        this.username = username;
         this.password = password;
     }
 
@@ -61,12 +61,12 @@ public class UserEntity {
         this.lastName = lastName;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
