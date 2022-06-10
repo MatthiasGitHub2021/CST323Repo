@@ -35,9 +35,7 @@ public class ProductController {
         List<ProductModel> productList = service.getAllProducts();
         model.addAttribute("title", "Products");
         model.addAttribute("ProductList", productList);
-//        for (ProductModel product : productList) {
-//            System.out.println(product.getName() + "");
-//        }
+
         return "products";
     }
 
