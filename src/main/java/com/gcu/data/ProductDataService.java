@@ -2,6 +2,8 @@ package com.gcu.data;
 
 import com.gcu.entity.ProductEntity;
 import com.gcu.repository.ProductRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +13,8 @@ import java.util.Optional;
 
 @Service
 public class ProductDataService implements DataAccessInterface<ProductEntity>{
+
+    Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     private ProductRepository productRepository;

@@ -3,6 +3,8 @@ package com.gcu.business;
 import com.gcu.data.UserDataService;
 import com.gcu.entity.UserEntity;
 import com.gcu.model.UserModel;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,9 +14,7 @@ public class UserBusinessService {
     @Autowired
     UserDataService service;
 
-    /**
-     * Method for adding a user as an entity to database
-     *
+    /** Method for adding a user as an entity to database
      */
     public boolean addUser(UserModel newUser){
         //Create entity (user) from model (user)
@@ -23,6 +23,7 @@ public class UserBusinessService {
                                             newUser.getLastName(),
                                             newUser.getUsername(),
                                             newUser.getPassword());
+
         //Attempt insertion of entity in database with UserDataService
         return service.create(entity);
     }

@@ -3,6 +3,8 @@ package com.gcu.controllers;
 import com.gcu.business.ProductBusinessService;
 import com.gcu.entity.ProductEntity;
 import com.gcu.model.ProductModel;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
@@ -22,6 +24,8 @@ import java.util.List;
 //@RequestMapping("/")
 public class ProductController {
 
+    Logger logger = LoggerFactory.getLogger(this.getClass());
+
     @Autowired
     private ProductBusinessService service;
 
@@ -31,6 +35,7 @@ public class ProductController {
      */
     @GetMapping("/products")
     public String products(Model model){
+        logger.info("Product page accessed.");
         //Get product list
         List<ProductModel> productList = service.getAllProducts();
         model.addAttribute("title", "Products");
@@ -45,7 +50,7 @@ public class ProductController {
      */
     @GetMapping("/readProduct/{id}")
     public String readProduct(@PathVariable int id, Model model){
-
+        logger.info("Read product page accessed with product ID= " + id);
         //Create Model object using Id
         ProductModel productModel = service.getProductById(id);
         //Create list to store object
@@ -53,12 +58,11 @@ public class ProductController {
         //Add Model object to list
         productList.add(productModel);
 
-
         model.addAttribute("title", "Read Product");
         model.addAttribute("ProductList", productList);
-        for (ProductModel product : productList) {
-            System.out.println(product.getName() + "");
-        }
+//        for (ProductModel product : productList) {
+//            System.out.println(product.getName() + "");
+//        }
 
         return "readProduct";
     }
@@ -70,7 +74,7 @@ public class ProductController {
      */
     @GetMapping("/addProduct")
     public String addProduct(Model model){
-
+        logger.info("Add product page accessed.");
         model.addAttribute("title", "Add Product");
         model.addAttribute("ProductModel", new ProductModel());
         //         object name to reference^^^              object^^^
@@ -86,7 +90,7 @@ public class ProductController {
      */
     @PostMapping("/doAdd")
     public String doAdd(@ModelAttribute ProductModel productModel, Model model){
-
+        logger.info("Product added. Product name= " + productModel.getName());
         //adds product to database
         service.addProduct(productModel);
 
@@ -107,6 +111,7 @@ public class ProductController {
 
     @GetMapping("/deleteById/{id}")
     public String deleteByID(@PathVariable int id, Model model){
+        logger.info("Product deleted. Product ID= " + id);
 
         //Get the product entity by ID #
         ProductModel product = service.getProductById(id);
@@ -132,7 +137,7 @@ public class ProductController {
      */
     @GetMapping("/editProduct/{id}")
     public String updateProduct(@PathVariable int id, Model model){
-
+        logger.info("Edit product page accessed with product ID= " + id);
 
         //Create Model object using Id
         ProductModel productModel = service.getProductById(id);
@@ -144,9 +149,9 @@ public class ProductController {
 
         model.addAttribute("title", "Read Product");
         model.addAttribute("ProductList", productList);
-        for (ProductModel product : productList) {
-            System.out.println(product.getName() + "");
-        }
+//        for (ProductModel product : productList) {
+//            System.out.println(product.getName() + "");
+//        }
 
         return "editProduct";
     }

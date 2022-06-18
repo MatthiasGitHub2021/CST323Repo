@@ -12,14 +12,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class HomeController {
 
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+    Logger logger = LoggerFactory.getLogger(this.getClass());
     @GetMapping("/")
     public String index(){
-        logger.debug("Logger debug message.");
-        logger.info("Logger info message");
-        logger.warn("Logger warn message");
-        logger.error("Logger error message.");
-        new SpringLoggingHelper().helpMethod();
+
+//      logger.info("HomeController accessed." + getClass());
+        logger.info("HomeController accessed.");
+//        new SpringLoggingHelper().helpMethod();
         return "index";
     }
 

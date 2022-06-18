@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
     <include resource="org/springframework/boot/logging/logback/base.xml"/>
+
     <logger name="com.gcu.CloudTestingAppActivity1Application.controllers" level="INFO" additivity="false">
         <appender-ref ref="CONSOLE"/>
         <appender-ref ref="FILE"/>
+        <appender-ref ref="STDOUT"/>
     </logger>
     <logger name="com.gcu.CloudTestingAppActivity1Application.business" level="INFO" additivity="false">
         <appender-ref ref="CONSOLE"/>
         <appender-ref ref="FILE"/>
+        <appender-ref ref="STDOUT"/>
     </logger>
     <logger name="com.gcu.CloudTestingAppActivity1Application.data" level="INFO" additivity="false">
         <appender-ref ref="CONSOLE"/>
         <appender-ref ref="FILE"/>
+        <appender-ref ref="STDOUT"/>
     </logger>
 </configuration>

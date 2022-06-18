@@ -14,7 +14,7 @@
     <form action="#" th:action="@{/doAdd}" th:each="product : ${ProductList}" method="POST">
 
         <div class="mb-3 justify-content-center">
-            <label class="form-label">Product name:</label>
+            <label class="form-label">ID:</label>
             <input type="text" class="form-control" th:value="${product.id}" id="id" name="id" required>
         </div>
 
